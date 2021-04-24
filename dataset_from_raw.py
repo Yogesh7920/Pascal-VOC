@@ -5,7 +5,6 @@ import string
 import numpy as np
 import requests
 import scipy.io
-from matplotlib import pyplot as plt
 
 from config import Config
 

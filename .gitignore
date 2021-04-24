@@ -1,4 +1,5 @@
 Datasets/
+Datasets.zip
 *.tar
 /venv/
 .ipynb_checkpoints
