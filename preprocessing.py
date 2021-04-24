@@ -1,42 +1,42 @@
-import os
-
-from config import Config
-
-
-def annot_preprocessing(text):
-    text = text.lower()
-    text_list = text.split('\n')
-    text_unique = list(set(text_list))
-    text = '\n'.join(text_unique)
-
-    return text
+import string
+import nltk
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
+from nltk.stem import SnowballStemmer
+from nltk.corpus import wordnet
 
 
-def annots_preprocessing():
-    annots1 = Config.abstract50s['annotations']
-    annots2 = Config.pascal50s['annotations']
+def preprocess_caption(caption):
+    # tokenize and convert to lower case
+    caption = [word.lower() for word in caption.split()]
 
-    for annot in os.listdir(annots1):
-        path = os.path.join(annots1, annot)
-        with open(path, 'r') as f:
-            text = f.read()
+    # prepare translation table for removing punctuation
+    table = str.maketrans('', '', string.punctuation)
+    # remove punctuation from each word
+    caption = [word.translate(table) for word in caption]
 
-        text = annot_preprocessing(text)
+    # remove words with numbers in them
+    caption = [word for word in caption if word.isalpha()]
 
-        with open(path, 'w') as f:
-            f.write(text)
+    # store caption as string
+    caption = ' '.join(caption)
 
-    for annot in os.listdir(annots2):
-        path = os.path.join(annots2, annot)
-        with open(path, 'r') as f:
-            text = f.read()
-
-        text = annot_preprocessing(text)
-
-        with open(path, 'w') as f:
-            f.write(text)
+    return caption
 
 
-if __name__ == '__main__':
-    pass
-    # annots_preprocessing()
+def get_wordnet_pos(word):
+    # Map POS tag to first character lemmatize() accepts
+    tag = nltk.pos_tag([word])[0][1][0].upper()
+    tag_dict = {"J": wordnet.ADJ,
+                "N": wordnet.NOUN,
+                "V": wordnet.VERB,
+                "R": wordnet.ADV}
+
+    return tag_dict.get(tag, wordnet.NOUN)
+
+
+def lemmatize_caption(caption, lemmatizer, stemmer):
+    stop_words = list(set(stopwords.words('english')))
+    return ' '.join(list(set([stemmer.stem(lemmatizer.lemmatize(word, get_wordnet_pos(word)))
+                              for word in nltk.word_tokenize(caption)
+                              if word not in stop_words])))

@@ -10,8 +10,8 @@ from config import Config
 
 
 def organize__raw_dataset():
-    abstract50S = scipy.io.loadmat("Datasets/abstract50S.mat")
-    pascal50S = scipy.io.loadmat("Datasets/pascal50S.mat")
+    abstract50S = scipy.io.loadmat("../Datasets/abstract50S.mat")
+    pascal50S = scipy.io.loadmat("../Datasets/pascal50S.mat")
 
     def create_dir(dir):
         if not os.path.exists(dir):
