@@ -1,2 +1,5 @@
 Datasets/
 *.tar
+/venv/
+.ipynb_checkpoints
+.idea/*

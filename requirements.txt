@@ -8,11 +8,11 @@ backcall==0.2.0
 bleach==3.2.2
 cachetools==4.2.0
 certifi==2020.12.5
-cffi==1.14.4
+cffi==1.14.5
 chardet==4.0.0
 cryptography==2.1.4
 cycler==0.10.0
-decorator==4.4.2
+decorator==5.0.6
 defusedxml==0.6.0
 entrypoints==0.3
 flatbuffers==1.12
@@ -21,7 +21,7 @@ google-auth==1.24.0
 google-auth-oauthlib==0.4.2
 google-pasta==0.2.0
 grpcio==1.32.0
-h5py==2.10.0
+h5py==3.2.1
 idna==2.6
 importlib-metadata==3.4.0
 ipykernel==5.1.1
@@ -29,7 +29,7 @@ ipython==7.16.1
 ipython-genutils==0.2.0
 ipywidgets==7.6.3
 jedi==0.18.0
-Jinja2==2.11.2
+Jinja2==2.11.3
 jsonschema==3.2.0
 jupyter==1.0.0
 jupyter-client==6.1.11
@@ -42,9 +42,9 @@ Keras-Preprocessing==1.1.2
 keyring==10.6.0
 keyrings.alt==3.0
 kiwisolver==1.3.1
-Markdown==3.3.3
+Markdown==3.3.4
 MarkupSafe==1.1.1
-matplotlib==3.3.3
+matplotlib==3.4.1
 mistune==0.8.4
 nbclient==0.5.1
 nbconvert==6.0.7
@@ -59,7 +59,7 @@ pandocfilters==1.4.3
 parso==0.8.1
 pexpect==4.8.0
 pickleshare==0.7.5
-Pillow==8.1.0
+Pillow==8.2.0
 prometheus-client==0.9.0
 prompt-toolkit==3.0.13
 protobuf==3.14.0
@@ -69,7 +69,7 @@ pyasn1-modules==0.2.8
 pycparser==2.20
 pycrypto==2.6.1
 Pygments==2.7.4
-pygobject==3.26.1
+pygobject==3.40.1
 pyparsing==2.4.7
 pyrsistent==0.17.3
 python-dateutil==2.8.1
