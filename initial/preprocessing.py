@@ -4,7 +4,6 @@ from config import Config
 
 
 def annot_preprocessing(text):
-    text = text.lower()
     captions = text.split('\n')
     captions_unique = list(set(captions))
     text = '\n'.join(captions_unique)
