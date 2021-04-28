@@ -31,7 +31,7 @@ def show_example(dataset, index):
 
 def processing(sentence, target):
     doc = nlp(sentence)
-    tokens = [token.text.lower() for token in doc]
+    tokens = {token.text.lower() for token in doc}
     for label in Config.labels:
         if label == 'dining table':
             if 'table' in tokens:
@@ -39,6 +39,14 @@ def processing(sentence, target):
         elif label == 'potted plant':
             if 'plant' in tokens:
                 target[Config.label_dict[label]] = 1
+        elif label == 'aeroplane':
+            if any('plane' in string for string in tokens):
+                target[Config.label_dict[label]] = 1
+
+        elif label == 'motorbike':
+            if any('bike' in string for string in tokens):
+                target[Config.label_dict[label]] = 1
+
         elif label in tokens:
             target[Config.label_dict[label]] = 1
 
