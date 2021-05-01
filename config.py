@@ -1,21 +1,25 @@
 import os
 
 
+def list_full_path(d):
+    return [os.path.join(d, f) for f in os.listdir(d)]
+
+
 class Config:
     # File structure
 
     datasets = 'Datasets'
     abstract50s = {
         'root': os.path.join(datasets, 'abstract50S'),
-        'images': os.path.join(datasets, 'abstract50S', 'images'),
-        'annotations': os.path.join(datasets, 'abstract50s', 'annotations'),
+        'images': list_full_path(os.path.join(datasets, 'abstract50s', 'images')),
+        'annotations': list_full_path(os.path.join(datasets, 'abstract50s', 'annotations')),
         'size': len(os.listdir(os.path.join(datasets, 'abstract50S', 'images')))
     }
 
     pascal50s = {
         'root': os.path.join(datasets, 'pascal50S'),
-        'images': os.path.join(datasets, 'pascal50S', 'images'),
-        'annotations': os.path.join(datasets, 'pascal50S', 'annotations'),
+        'images': list_full_path(os.path.join(datasets, 'pascal50S', 'images')),
+        'annotations': list_full_path(os.path.join(datasets, 'pascal50S', 'annotations')),
         'size': len(os.listdir(os.path.join(datasets, 'pascal50S', 'images')))
     }
 
@@ -45,10 +49,3 @@ class Config:
                   'sofa': 18,
                   'tv': 19,
                   'monitor': 20}
-
-    # Model Config
-
-    batches = 32
-    learning_rate = 0.01
-    patience = 10
-    epochs = 500
