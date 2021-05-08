@@ -29,9 +29,14 @@ def show_example(dataset, index):
     plt.imshow(get_image(dataset, index))
 
 
+def find_indices(lst, item):
+    return [i for i, x in enumerate(lst) if x == item]
+
+
 def processing(sentence, target):
     doc = nlp(sentence)
-    tokens = {token.lemma_.lower() for token in doc}
+    tokens = [token.lemma_.lower() for token in doc]
+    raw_tokens = [token.text.lower() for token in doc]
     for label in Config.labels:
         if label == 'dining table':
             if 'table' in tokens:
@@ -42,14 +47,27 @@ def processing(sentence, target):
         elif label == 'aeroplane':
             if any('plane' in string for string in tokens):
                 target[Config.label_dict[label]] = 1
-
         elif label == 'motorbike':
             if any('bike' in string for string in tokens):
                 target[Config.label_dict[label]] = 1
 
+        elif label == 'dog':
+            if 'dog' in tokens:
+                inds = find_indices(tokens, 'dog')
+                inds = list(map(lambda x: x-1, inds))
+                flag = True
+                for i in inds:
+                    if tokens[i] == 'hot':
+                        flag = False
+                if flag:
+                    target[Config.label_dict[label]] = 1
+
         elif label == 'person':
             if {'person', 'man', 'woman', 'boy', 'girl', 'lady', 'kid', 'human',
-                'child', 'adult', 'guy'}.intersection(tokens) != {}:
+                'child', 'adult', 'guy'}.intersection(tokens) != set():
+                ind = find_indices(tokens, 'person')
+                if len(ind) and raw_tokens[ind[0]] == 'persons':
+                    continue
                 target[Config.label_dict[label]] = 1
 
         elif label in tokens:
