@@ -2,7 +2,7 @@ import os
 
 
 def list_full_path(d):
-    return [os.path.join(d, f) for f in os.listdir(d)]
+    return [os.path.join(d, f) for f in sorted(os.listdir(d))]
 
 
 class Config:
