@@ -34,6 +34,12 @@ def find_indices(lst, item):
 
 
 def processing(sentence, target):
+    people = {'person', 'man', 'woman', 'boy', 'girl', 'lady', 'kid', 'human',
+              'child', 'adult', 'guy', 'people'}
+    birds = {'bird', 'parrot', 'peacock', 'duck', 'chicken', 'hen', 'sparrow',
+             'pigeon', 'crow', 'eagle', 'kingfisher', 'turkey', 'ostrich',
+             'cuckoo', 'woodpecker', 'vulture'}
+
     doc = nlp(sentence)
     tokens = [token.lemma_.lower() for token in doc]
     raw_tokens = [token.text.lower() for token in doc]
@@ -50,7 +56,9 @@ def processing(sentence, target):
         elif label == 'motorbike':
             if any('bike' in string for string in tokens):
                 target[Config.label_dict[label]] = 1
-
+        elif label == 'bird':
+            if birds.intersection(tokens) != set():
+                target[Config.label_dict[label]] = 1
         elif label == 'dog':
             if 'dog' in tokens:
                 inds = find_indices(tokens, 'dog')
@@ -63,8 +71,7 @@ def processing(sentence, target):
                     target[Config.label_dict[label]] = 1
 
         elif label == 'person':
-            if {'person', 'man', 'woman', 'boy', 'girl', 'lady', 'kid', 'human',
-                'child', 'adult', 'guy'}.intersection(tokens) != set():
+            if people.intersection(tokens) != set():
                 ind = find_indices(tokens, 'person')
                 if len(ind) and raw_tokens[ind[0]] == 'persons':
                     continue
