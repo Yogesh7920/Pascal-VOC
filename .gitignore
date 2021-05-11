@@ -10,4 +10,5 @@ temp.ipynb
 temp.py
 
 cache/*
-
+logs
+logs.zip
