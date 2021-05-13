@@ -33,8 +33,6 @@ def macro_soft_f1(y, y_hat):
 
 if __name__ == '__main__':
 
-
-
     labels = Config.labels[:-1]
     labels[-1] = 'tv/moniter'
     labels = np.array(labels)
@@ -53,12 +51,17 @@ if __name__ == '__main__':
 
     if args[0] == '1':
         model = keras.models.load_model(f'models/task{args[0]}.h5', compile=False)
-        model.compile(optimizer='adam', loss=macro_soft_f1)
         preds = (model.predict(img) > 0.5) * 1
         print(labels[np.where(preds[0] == 1)])
 
     elif args[0] == '2':
-        pass
+        model = keras.models.load_model(f'models/model2', compile=False)
+        with open(args[2]) as f:
+            annots = f.read()
+
+        preds = (model.predict(img, annots) > 0.5) * 1
+        print(labels[np.where(preds[0] == 1)])
+
     elif args[0] == '3':
         pass
     else:
