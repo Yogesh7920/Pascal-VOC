@@ -6,7 +6,7 @@ import numpy as np
 import requests
 import scipy.io
 
-from config import Config
+from ..config import Config
 
 
 def organize__raw_dataset():
