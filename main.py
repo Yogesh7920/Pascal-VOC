@@ -59,7 +59,7 @@ if __name__ == '__main__':
         with open(args[2]) as f:
             annots = f.read()
 
-        preds = (model.predict(img, annots) > 0.5) * 1
+        preds = (model.predict((img, [annots])) > 0.5) * 1
         print(labels[np.where(preds[0] == 1)])
 
     elif args[0] == '3':
