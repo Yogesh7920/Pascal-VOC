@@ -12,3 +12,5 @@ temp.py
 cache/*
 logs
 logs.zip
+
+models/

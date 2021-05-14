@@ -6,6 +6,15 @@
 - Subhash S
 - Neeraj Patil
 
+### General Info
+
+- preprocessing.ipynb need to be executed first to get the cache, other ipynbs depend on it
+- the cache folder holds all the important result of this project. Use the link below to access it.
+    https://drive.google.com/drive/folders/1IOeSR6_gFxJtLrxPWzp1z6-memZZDpzL?usp=sharing
+  
+    The models are available in cache/models
+- While loading the model make sure to have compile arg false and compile it after loading as a custom loss function is used.
+
 ### Problem Statement
 
 This is a high level description which will naturally evolve. Perform multi-modal image classification and image description on PASCAL50S dataset. The PASCAL50S dataset is generated using the 1000 images taken from the PASCAL VOC 2008 dataset. The base dataset contains 6000 images belonging to 20 image classes. 50 images from each class are randomly sampled to form the 1000 images in PASCAL50S dataset[1][2]. Each image is annotated using 50 sentences, describing the image[1].
