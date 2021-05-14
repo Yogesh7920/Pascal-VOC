@@ -6,14 +6,22 @@
 - Subhash S
 - Neeraj Patil
 
-### General Info
-
-- preprocessing.ipynb need to be executed first to get the cache, other ipynbs depend on it
-- the cache folder holds all the important result of this project. Use the link below to access it.
-    https://drive.google.com/drive/folders/1IOeSR6_gFxJtLrxPWzp1z6-memZZDpzL?usp=sharing
+### Fetching data
+#### Recommended method
+- the cache folder holds all the important result of this project. Use the link below to access it.  
+  https://drive.google.com/drive/folders/1IOeSR6_gFxJtLrxPWzp1z6-memZZDpzL?usp=sharing
   
-    The models are available in cache/models
+  The models are available in cache/models
 - While loading the model make sure to have compile arg false and compile it after loading as a custom loss function is used.
+
+#### Manual method - Downloading and organising data.
+- preprocessing.ipynb need to be executed first to get the cache, other ipynbs depend on it
+- Make sure that the two `mat` files downloaded are in the Datasets/ directory.
+
+### General Instructions
+- Create a shortcut of the cache directory to your drive.
+- For task-1, `cd` into the cache directory in the ipynb file.
+- For task-2 and task-3, change the appropriate `%_path` variables in the notebook to point to the right locations.
 
 ### Problem Statement
 
