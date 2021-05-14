@@ -18,14 +18,14 @@ def organize__raw_dataset():
             os.makedirs(dir)
 
     abstract50S_path = {}
-    abstract50S_path["images"] = "Datasets/abstract50S/images/"
-    abstract50S_path["annotations"] = "Datasets/abstract50S/annotations/"
+    abstract50S_path["images"] = "../Datasets/abstract50S/images/"
+    abstract50S_path["annotations"] = "../Datasets/abstract50S/annotations/"
     create_dir(abstract50S_path["images"])
     create_dir(abstract50S_path["annotations"])
 
     pascal50S_path = {}
-    pascal50S_path["images"] = "Datasets/pascal50S/images/"
-    pascal50S_path["annotations"] = "Datasets/pascal50S/annotations/"
+    pascal50S_path["images"] = "../Datasets/pascal50S/images/"
+    pascal50S_path["annotations"] = "../Datasets/pascal50S/annotations/"
     create_dir(pascal50S_path["images"])
     create_dir(pascal50S_path["annotations"])
 
