@@ -1,6 +1,8 @@
 # Pascal-VOC
 **_IIT-PKD: CS5007 - Deep Learning Project._**
 
+##### See the DL_project_Yogesh.pdf for the report
+
 ### Members
 - Yogesh R
 - Subhash S
